@@ -1,0 +1,21 @@
+/**
+ * General layout CSS for the Twitter app
+ * Author    : Lucian Hontau
+ * Copyright : Lucian Hontau
+*/
+
+html > body {font-size: 12px;}
+
+a:link, a:hover, a:visited, a:active {
+	color: blue;
+	font-weight: bold;
+}
+
+div.section div.column_content {
+	padding: 5px;
+	margin: 5px;
+}
+
+.bills-clear {
+	clear: both;
+}

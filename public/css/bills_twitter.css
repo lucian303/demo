@@ -1,0 +1,50 @@
+/* 
+    Document   : bills_twitter
+    Created on : Apr 3, 2011, 12:38:31 PM
+    Author     : Lucian Hontau
+	Copyright  : Lucian Hontau
+    Description: CSS for the twitter bills demo
+*/
+
+.bills-tweet-box {
+	margin: 10px auto auto 10px;
+}
+
+.bills-tweet {
+	float: left;
+}
+
+.bills-tweet-checkbox {
+	float: left;
+/*	margin-top: 15px;*/
+	opacity: 1; /* doesn't seem to override the parent opacity */
+}
+
+.bills-tweet-image {
+	display: inline;
+}
+
+.bills-tweet-first-column {
+	max-width: 30px;
+}
+
+.bills-tweet-second-column {
+	max-width: 75px;
+}
+
+.bills-tweet-state-0 {
+	opacity: 1;
+}
+
+.bills-tweet-state-1 {
+	opacity: .5;
+}
+
+.bills-tweet-biglink {
+	font-size: 24px;
+	margin: 20px;
+}
+
+.bills-tweet-timeelapsed {
+	color: #BBBBBB;
+}

@@ -1,0 +1,20 @@
+<?php echo $this->doctype();?>
+<html>
+	<head>
+		<?php 
+		print $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
+                               ->appendHttpEquiv('Content-Language', 'en-US');
+		
+		print $this->headLink()->prependStylesheet($this->baseUrl() . '/css/bills_layout.css')
+                               ->prependStylesheet($this->baseUrl() . '/css/fluid.gs.lt_ie8.css', 'screen', true, array('conditional' => 'lt IE 8'))
+		                       ->prependStylesheet($this->baseUrl() . '/css/fluid.gs.css');
+
+		print $this->headScript()->prependFile('http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js');
+
+		print $this->headTitle();
+		?>
+	</head>
+	<body>
+		<?php echo $this->layout()->content; ?>
+	</body>
+</html>

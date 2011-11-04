@@ -1,0 +1,52 @@
+<?php
+$this->headScript()->appendFile($this->baseUrl() . '/js/bills_twitter.js', 'text/javascript');
+$this->headLink()->appendStylesheet($this->baseUrl() . '/css/bills_twitter.css');
+$this->headTitle('Twitter Data Pull Test');
+?>
+
+<a href="<?php print $this->baseURL() . '/default/index/pull-Tweets'; ?>"><span class="bills-tweet-biglink">Pull Tweets</span></a>
+
+<div class="fluid_grid_layout bills-tweet-box">
+	<?php foreach($this->results as $result) : ?>
+		<div class="six_column section">
+			<div class="one column bills-tweet-first-column">
+				<div class="column_content">
+					<?php print $this->formCheckbox("tweet-id-{$result['id']}", null, array('checked' => $result['is_viewed'], 'class' => 'bills-tweet-checkbox')); ?>
+				</div>
+			</div>
+
+			<div class="bills-tweet-container <?php print "bills-tweet-state-{$result['is_viewed']}"; ?>">
+				<div class="one column bills-tweet-second-column">
+					<div class="column_content">
+						<div class="bills-tweet-image">
+							<a href="<?php print "http://twitter.com/{$result['from_user']}"; ?>">
+								<img src="<?php print $result['profile_image_url']; ?>" border="0" alt="Profile Picture" />
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="four column">
+					<div class="column_content">
+						<div class="bills-tweet">
+							<a class="bills-tweet-username" href="<?php print "http://twitter.com/{$result['from_user']}"; ?>">
+								<?php print $result['from_user']; ?>
+							</a>
+							:
+							<?php
+								$finalText = $this->twitterify($result['text']);
+								$finalText = preg_replace("#(lucianux.com)#i", '<b>$1</b>', $finalText);
+								print $finalText;
+							?>
+							<br />
+							<span class="bills-tweet-timeelapsed"><?php print $this->timeElapsed($result['created_at']); ?></span> &nbsp;
+							<a class="bills-tweet-viewtweet" href="<?php print "http://twitter.com/{$result['from_user']}/statuses/{$result['id']}"; ?>">View Tweet</a>
+						</div>
+						<div class="bills-clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bills-clear"></div>
+	<?php endforeach; ?>
+</div>
